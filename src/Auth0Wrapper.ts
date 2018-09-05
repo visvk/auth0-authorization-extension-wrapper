@@ -10,6 +10,7 @@ import {
 	RoleResponse,
 	Group,
 	GroupResponse,
+	MembersReponse,
 } from './Auth0Types';
 
 
@@ -182,6 +183,10 @@ export class Auth0Wrapper {
 
 	async removeGroupFromUser(id: string, group: string) {
 		return this.delete(`/groups/${group}/members`, [id]);
+	}
+
+	async getGroupMembers(group: string) {
+		return (await this.get<MembersReponse>(`/groups/${group}/members`)).users;
 	}
 
 	// GROUPS

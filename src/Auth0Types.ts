@@ -48,3 +48,8 @@ export interface GroupResponse {
 	groups: Group[];
 	total: number;
 }
+
+export interface MembersReponse {
+	users: any[];
+	total: number;
+}
